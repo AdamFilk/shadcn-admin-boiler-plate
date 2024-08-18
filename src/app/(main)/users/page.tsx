@@ -8,10 +8,11 @@ import {
   BreadcrumbList,
   BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb';
+import UserList from '@/components/app/users/list';
 
 export default function UsersPage() {
   return (
-    <ContentLayout title='Dashboard'>
+    <ContentLayout title='Users'>
       <Breadcrumb>
         <BreadcrumbList>
           <BreadcrumbItem>
@@ -22,12 +23,12 @@ export default function UsersPage() {
           <BreadcrumbSeparator />
           <BreadcrumbItem>
             <BreadcrumbLink>
-              <Link href='/dashboard'>Dashboard</Link>
+              <Link href='/users'>Users</Link>
             </BreadcrumbLink>
           </BreadcrumbItem>
         </BreadcrumbList>
       </Breadcrumb>
-      {/* <PlaceholderContent /> */}
+      <UserList />
     </ContentLayout>
   );
 }

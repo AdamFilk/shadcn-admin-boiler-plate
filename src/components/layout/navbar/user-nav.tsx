@@ -20,8 +20,11 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { ExitIcon, GridIcon, PersonIcon } from '@radix-ui/react-icons';
+import { logout } from '@/lib/api/auth/auth';
+import { useRouter } from 'next/navigation';
 
 export function UserNav() {
+  const router = useRouter();
   return (
     <DropdownMenu>
       <TooltipProvider disableHoverableContent>
@@ -68,7 +71,13 @@ export function UserNav() {
           </DropdownMenuItem>
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
-        <DropdownMenuItem className='hover:cursor-pointer' onClick={() => {}}>
+        <DropdownMenuItem
+          className='hover:cursor-pointer'
+          onClick={() => {
+            logout();
+            router.push('/login');
+          }}
+        >
           <ExitIcon className='mr-3 h-4 w-4 text-muted-foreground' />
           Sign out
         </DropdownMenuItem>
